@@ -1,0 +1,75 @@
+	<html>
+	<head>
+	<meta name="description" content="Survey page">
+	<meta name="keywords" content="Gre Test">
+	<meta name="author" content="Rajat">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bootstrap.min.css">
+	<script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+	<link rel="stylesheet" href="gre.css">
+	<title>Survey</title>
+	</head>
+	<body>
+	<form action="Summary.html">
+
+	<div class="container">
+	<div class="row heading" ><center><h3>Survey</h3><center></div>
+	<div class="row QuesText ">
+	<div class="row"></div>
+	<div>How did you like the center ?</div><br/>
+	<div class="col-md-2" style="padding: 0px;">Comments:</div>
+	<div class="col-md-10"><textarea class="txtArea form-control" rows="5" cols="50" ></textarea><br/>
+
+	</div>
+	</div>
+	<div class="row QuesText">
+	<div class="txtloc ">Select Text Area Location</div>
+	</div>
+	<div class="row QuesText">
+	<div class="col-md-1">City:</div>
+	<div class="col-md-4 dL">
+	<input type="text" name="inputDataCity" list="dataListCity"/>
+	<datalist id="dataListCity">
+	<option value="San Jose">
+	<option value="San Frnsisco">
+	<option value="Santa Clara">
+	<option value="Oakland">
+	<option value="Mountain View">
+	<option value="Palo Alto">
+	<option value="Cupertino">
+	</datalist>
+
+	</div>
+<div class="col-md-1"></div>
+
+	<div class="col-md-2">Room Number#</div>
+	<div class="col-md-4 dL">
+	<input type="text" name="inputDataRoom" list="dataListRoom"/>
+	<datalist id="dataListRoom">
+	<option value="Room 337">
+	<option value="Room 338">
+		<option value="Room 339">
+		<option value="Room 340">
+		<option value="Room 341">
+		<option value="Room 342">
+		<option value="Room 289">
+	</datalist>
+					</div>
+				</div>
+			
+			<div class="row dvBtnSurvey form-inline" >
+				
+				<div class="col-md-3">
+					<button type="Submit" class="btnSave form-control">Submit & Get Score</button>
+				</div>
+				<div class="col-md-1"></div>
+				<div class="col-md-3" style="padding-left: 5%;">
+					<button type="Submit" class="btnClear form-control">Skip & Get Score</button>
+				</div>
+			</div>
+		</div>
+
+	</form>
+	</body>
+	</html>

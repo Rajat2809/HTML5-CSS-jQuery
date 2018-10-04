@@ -1,0 +1,113 @@
+html *{
+		font-family: arial;
+	}
+	.containerLogin{
+		border-radius: 10px;
+		border-width: 50%;
+		border-style: solid;
+		width:300px;
+		height: 200px;
+		margin:5%;
+		position: absolute;
+		left:30%;
+		top:30%;
+	}
+	.container{
+		border-radius: 10px;
+		border-width: 50%;
+		border-style: solid;
+		width:1150px;
+		height: auto;
+		margin:5%;
+
+	}
+	.containerDetails{
+		border-style: solid;
+		width:auto;
+		height: auto;
+		margin:2%;
+	}
+	
+		input{
+			width:50%;
+			padding:4px;
+			margin:4px;
+		}
+		label{
+			width:100%;
+			padding:4px;
+			margin:4px;
+		}
+
+		h3{
+			background-color: lightgrey;
+			margin-top: 0px;
+		}
+		
+		.img{
+			float:right;
+			position:relative;
+			right:0;
+			width:300px;
+			height:300px;
+		}
+	
+		
+		.dvBtn{
+			margin:20px 5px;
+			
+
+		}
+		
+		button{
+			border-radius: 8px;
+			padding: 12px 28px;
+			background: transparent;
+		}
+		button:hover{
+			background-color:lightblue;
+		}
+
+	
+	.QuesText{
+		margin:1%;
+
+		}
+	.CreAcc{
+				color:blue;
+				text-decoration: none;
+			}
+	
+	.txtloc{
+	font-size: 14px;
+
+	}
+	.txtArea{
+	width:70%;
+	}
+	.dL{
+	max-width: 20%;
+	}
+	.Question{
+		margin-top:15%;
+	}
+	.frow{
+		margin-top: 10%
+	}
+	.dvBtnVideo{
+		position: relative;
+    bottom: 10%;
+	}
+	.dvBtnSurvey{
+		position: relative;
+    bottom: -20%;
+	}
+	.dvBtnCosine{
+		position: relative;
+		bottom: -20%;
+	}
+.btnFinish{
+	position: relative;
+	bottom:20%;
+
+}

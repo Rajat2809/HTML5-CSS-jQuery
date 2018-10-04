@@ -1,0 +1,54 @@
+<html>
+<head>
+	<meta name="description" content="Summary page">
+	<meta name="keywords" content="Gre Test">
+	<meta name="author" content="Rajat">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bootstrap.min.css">
+	<link rel="stylesheet" href="gre.css">
+	<script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+	<title>Summary</title>
+	<script>
+		$(document).ready(function(){
+			jQuery('#qQuesAns').html(parseInt(sessionStorage.getItem("qQuesAns")));
+			jQuery('#qQuesCorr').html(parseInt(sessionStorage.getItem("qQuesCorr")));
+			jQuery('#rQuesAns').html(parseInt(sessionStorage.getItem("rQuesAns")));
+			jQuery('#rQuesCorr').html(parseInt(sessionStorage.getItem("rQuesCorr")));
+			jQuery('#avQuesAns').html(parseInt(sessionStorage.getItem("avQuesAns")));
+			jQuery('#avQuesCorr').html(parseInt(sessionStorage.getItem("avQuesCorr")));
+		});
+			</script>
+	
+</head>
+<body>
+	
+
+		<div class="container">
+			<div class="row heading" ><center><h3>Score Card</h3><center></div>
+				<div class="containerDetails">
+			<details>
+				<summary>Quantitative Section			</summary>
+				<p>Number of questions answered: <span id="qQuesAns"></span></p>
+				<p>Number of correct answer: <span id="qQuesCorr"></span></p>
+		</details>
+		<details>
+				<summary>Reading Section			</summary>
+				<p>Number of questions answered: <span id="rQuesAns"></span></p>
+				<p>Number of correct answer: <span id="rQuesCorr"></span></p>
+		</details>
+		<details>
+				<summary>Audio/Video Section			</summary>
+				<p>Number of questions answered: <span id="avQuesAns"></span></p>
+				<p>Number of correct answer: <span id="avQuesCorr"></span></p>
+		</details>
+	</div>
+	<div>
+		<center><h2>Thank You !!</h2></center>
+				</div>
+				<div class="row">
+				<center><button class="btnFinish" type="button">Finish</button></center></div>
+</div>
+			
+		</body>
+		</html>

@@ -1,0 +1,371 @@
+	<html>
+	<head>
+		<meta name="description" content="Password Strength">
+		<meta name="keywords" content="Password Strength">
+		<meta name="author" content="Rajat">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="bootstrap.min.css">
+
+		<script src="jquery.min.js"></script>
+		<script src="bootstrap.min.js"></script>
+
+		<title>Password Strength</title>
+		<style>
+		div{
+			padding: 1px;
+		}
+		.tooltip {
+			position: relative;
+			display: inline-block;
+			border-bottom: 0px dotted black;
+			opacity:1;
+			line-height: 1.6;
+		}
+		.Pass{
+			width:19%;
+		}
+		.tooltip .tooltiptext {
+			visibility: hidden;
+			width: auto;
+			background-color: black;
+			color: #fff;
+
+			border-radius: 6px;
+			padding: 5px 0;
+			margin:1px;
+			/* Position the tooltip */
+			position: absolute;
+			z-index: 1;
+			left:20%;
+			top:0%;
+		}
+		.tooltipSecondaryText{
+			background-color: white;
+			color: black;
+			height: auto;
+			width:auto;
+			margin:1px;
+		}
+
+
+		.tooltip:hover .tooltiptext {
+			visibility: visible;
+		}
+		.greenTick{
+			color: green;
+			visibility: hidden;
+		}
+		.redCross{
+			color:red;
+		}
+		.txtblue{
+			color: blue;
+		}
+		#progressBar{
+			width:100%;
+			height:5%;
+
+
+		}
+	</style>
+	
+	<script>
+		
+		$(document).on('keyup','.Pass',function(){
+			var pass=jQuery('.Pass').val();
+			var userId=jQuery('#userId').val();
+			var strength=0;
+			var lenStrength;
+			var alphaStrength;
+			var numStrength;
+			var spaceStrength;
+			var userStrength;
+			if(pass.length>=7 && pass.length<=20)
+			{
+				jQuery('#crossLength').html('&#10004;');
+				jQuery('#crossLength').css('color','green');
+				lenStrength=1;
+
+			}
+			else{
+				jQuery('#crossLength').html('&#10006;');
+				jQuery('#crossLength').css('color','red');
+				lenStrength=0;
+			}
+			var alphaCount=pass.replace(/[^A-Z]/gi, "").length;
+			if(alphaCount>=4){
+				jQuery('#crossAlpha').html('&#10004;');
+				jQuery('#crossAlpha').css('color','green');
+				alphaStrength=1;
+
+			}
+			else{
+				jQuery('#crossAlpha').html('&#10006;');
+				jQuery('#crossAlpha').css('color','red');
+				alphaStrength=0;
+			}
+			var numCount=pass.replace(/[^0-9]/gi, "").length;
+			var specialCount=pass.replace(/[^!|#|$|%]/gi, "").length;
+
+			if(numCount>=1 || specialCount>=1)
+			{
+				jQuery('#crossNum').html('&#10004;');
+				jQuery('#crossNum').css('color','green');
+				numStrength=1;
+			}
+			else{
+				jQuery('#crossNum').html('&#10006;');
+				jQuery('#crossNum').css('color','red');
+				numStrength=0;
+			}
+
+			if(pass.indexOf(" ")==-1)
+			{
+				jQuery('#crossSpace').html('&#10004;');
+				jQuery('#crossSpace').css('color','green');
+				spaceStrength=1;
+
+			}
+			else{
+				jQuery('#crossSpace').html('&#10006;');
+				jQuery('#crossSpace').css('color','red');
+				spaceStrength=0;
+			}
+			if(pass.toLowerCase()!= userId.toLowerCase())
+			{
+				jQuery('#crossUserID').html('&#10004;');
+				jQuery('#crossUserID').css('color','green');
+				userStrength=1;
+
+			}
+			else{
+				jQuery('#crossUserID').html('&#10006;');
+				jQuery('#crossUserID').css('color','red');
+				userStrength=0;
+			}
+			strength=lenStrength+alphaStrength+numStrength+spaceStrength+userStrength;
+			changeProgress(strength);
+
+		});
+		function changeProgress(strength1){
+			jQuery('#progressChange').removeClass('progress-bar-danger');
+
+			var strengthNow=strength1*20;
+			jQuery('#progressChange').attr('aria-valuenow',strengthNow);
+
+			jQuery('#progressChange').css('width',strengthNow+'%');
+			if(strengthNow<=33){
+				jQuery('#progressChange').html('Weak '+strengthNow+'%');
+				jQuery('#progressChange').removeClass('progress-bar-warning');
+				jQuery('#progressChange').removeClass('progress-bar-success');
+				jQuery('#progressChange').addClass('progress-bar-danger');
+			}
+			else if(strengthNow<=66){
+				jQuery('#progressChange').html('Intermediate '+strengthNow+'%');
+				jQuery('#progressChange').removeClass('progress-bar-danger');
+				jQuery('#progressChange').removeClass('progress-bar-success');
+				jQuery('#progressChange').addClass('progress-bar-warning');
+			}
+			else{
+				jQuery('#progressChange').html('Strong '+strengthNow+'%');
+				jQuery('#progressChange').removeClass('progress-bar-danger');
+				jQuery('#progressChange').removeClass('progress-bar-warning');
+				jQuery('#progressChange').addClass('progress-bar-success');
+			}
+
+		}
+
+		$(document).on('keyup','#verifyPass',function(){
+
+			var pass=jQuery('.Pass').val();
+			var verifyPass=jQuery('#verifyPass').val();
+			if(verifyPass.length>=7)
+			{
+				if(pass.toLowerCase()==verifyPass.toLowerCase()){
+					jQuery('#verifyText').css('visibility','visible');
+					jQuery('#verifyText').html('Password Matched!');
+					jQuery('#verifyText').css('color','green');
+				}
+				else{
+					jQuery('#verifyText').css('visibility','visible');
+					jQuery('#verifyText').html('Password did not match!');
+					jQuery('#verifyText').css('color','red');	
+				}
+			}
+			else{
+				return;
+			}
+		});
+		$(document).on('keyup','#verifyEmail',function(){
+			var email=jQuery('#email').val();
+			var verifyEmail=jQuery('#verifyEmail').val();
+			if(verifyEmail.length>=7)
+			{
+				if(email.toLowerCase()==verifyEmail.toLowerCase()){
+					jQuery('#verifyEmailText').css('visibility','visible');
+					jQuery('#verifyEmailText').html('Email Matched!');
+					jQuery('#verifyEmailText').css('color','green');
+				}
+				else{
+					jQuery('#verifyEmailText').css('visibility','visible');
+					jQuery('#verifyEmailText').html('Email did not match!');
+					jQuery('#verifyEmailText').css('color','red');	
+				}
+			}
+			else{
+				return;
+			}
+		});
+	$(document).on('click','#clear',function(){
+		jQuery('#verifyEmailText').css('visibility','hidden');
+		jQuery('#verifyText').css('visibility','hidden');
+		jQuery('#progressChange').attr('aria-valuenow',0);
+		jQuery('#progressChange').css('width',0);
+		jQuery('#progressChange').removeClass('progress-bar-warning');
+		jQuery('#progressChange').removeClass('progress-bar-success');
+		jQuery('#progressChange').addClass('progress-bar-danger');
+		jQuery('#progressChange').html('');
+	})
+
+</script>
+</head>
+<body>
+
+<form>
+<div class="container">
+<header>
+<div class="col-md-1"><img  src="arrow.gif" height="50px" width="50px"></div>
+<div class="col-md-11"><h2>Registration</h2></div>
+</header>
+<br><br>
+<div class="formData">	
+<div class="row">
+<div class="col-md-2">User Id</div>
+<div class="col-md-3"><input id="userId" type="text" name="userId" required></div>
+</div>
+
+<div class="row">
+<div class="col-md-2">Password</div>
+<div class="col-md-10 tooltip">
+
+	<input class="Pass" type="Password" name="password" required>
+	<div class="tooltiptext" id="myPopup"><h6>Password Strength</h6>
+		<div class="tooltipSecondaryText">
+			<div class="row">
+				<div class="col-md-2"><span class="redCross" id="crossLength">&#10006;</span></div>
+				<div class="col-md-10"><span>Must be 7-20 characters</span></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"><span class="redCross" id="crossAlpha">&#10006;</span></div>
+				<div class="col-md-10"><span>Include "4" alpha characters</span></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"><span class="redCross" id="crossNum">&#10006;</span></div>
+				<div class="col-md-10"><span>"1" numeric character (0-9) or "1" special character(!,#,$,%)</span></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"><span class="redCross" id="crossSpace">&#10006;</span></div>
+				<div class="col-md-10"><span>No spaces between characters</span></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"><span class="redCross" id="crossUserID">&#10006;</span></div>
+				<div class="col-md-10"><span>Password and user Id cannot be same</span></div>
+			</div>
+		</div>
+
+
+
+	</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-2"> Verify Password</div>
+<div class="col-md-2"><input id="verifyPass" type="Password" name="verifyPassword" required></div>
+<div class="col-md-3" id="verifyText"style="visibility:hidden"></div>
+</div>
+<div class="row">
+<div class="col-md-2">Email</div>
+<div class="col-md-3"><input type="email" id="email" name="email" required></div>
+</div>
+<div class="row">
+<div class="col-md-2">Verify Email</div>
+<div class="col-md-2"><input type="email" id="verifyEmail" name="verifyEmail" required></div>
+<div class="col-md-3" id="verifyEmailText"style="visibility:hidden"></div>
+</div>
+<div class="row">
+<div class="col-md-2">Sequrity Question</div>
+<div class="col-md-3"><input type="text" name="inputDataQuestion1" list="dlQuestion" required/>
+	<datalist id="dlQuestion">
+		<option value="Sum of 2 + 3">
+			<option value="Sum of 100 + 200">
+				<option value="23 X 100">
+					<option value="Capital of India ?">
+						<option value="Capital of USA ?">
+						</datalist>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2">Answer</div>
+					<div class="col-md-3"><input type="text" name="answer1" required></div>
+				</div>
+				<div class="row">
+					<div class="col-md-2">Sequrity Question</div>
+					<div class="col-md-3"><input type="text" name="inputDataQuestion2" list="dlQuestion" required/>
+						<datalist id="dlQuestion">
+							<option value="Sum of 2 + 3">
+							<option value="Sum of 100 + 200">
+							<option value="23 X 100">
+							<option value="Capital of India ?">
+							<option value="Capital of USA ?">
+						</datalist>
+					</div>
+				</div>
+									<div class="row">
+										<div class="col-md-2">Answer</div>
+										<div class="col-md-3"><input type="text" name="answer2" required></div>
+
+									</div>
+									<div class="row">
+										<div class="col-md-2 txtblue">Mobile</div>
+										<div class="col-md-3"><input type="tel" id="phone" name="phone"
+											placeholder="111-222-3333"
+											pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+											maxlength="12"
+											required/></div>
+										</div>
+										<div class="row ">
+											<div class="col-md-2 txtblue">Address</div>
+											<div class="col-md-5"><textarea rows="4" cols="50">
+											</textarea></div>
+										</div>
+										<div class="row ">
+											<div class="col-md-2"></div>
+											<div class="col-md-7"><h4>Areas you may be interested in, please select one or more:</h4></div><br>
+										</div>
+										<div class="row ">
+											<div class="col-md-2"></div>
+											<div class="col-md-7"><textarea rows="8" cols="50">
+											</textarea></div></div><br>
+										</div>
+										<div class="row ">
+											<div class="col-md-2"></div>
+											<div class="col-md-2"><button id="register" type="submit" style="margin-right:5px; ">Register</button>
+												<button id="clear" type="reset">Clear</button></div>
+												<div class="col-md-7">
+													<div class="progress" id="progressBar">
+														<div id="progressChange" class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar"
+														aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" >
+														<!-- style="width:100%" -->
+													</div>
+												</div>
+												<!-- <progress value="20" max="100"> -->
+
+												</progress></div></div><br>
+	</div>
+
+
+</div>
+</form>
+</body>
+</html>

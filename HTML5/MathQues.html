@@ -1,0 +1,182 @@
+<html>
+<head>
+	<meta name="description" content="Math Question page">
+	<meta name="keywords" content="Gre Test">
+	<meta name="author" content="Rajat">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bootstrap.min.css">
+	<link rel="stylesheet" href="gre.css">
+	<script src="jquery.min.js"></script>
+	<script src="bootstrap.min.js"></script>
+	<script src="gre.js" ></script>
+	<title>Math Question</title>
+	
+</head>
+<body>
+	<form action="CosineQues.html">
+		<input type="hidden" class="section" value="Quant1"/>
+		<div class="container">
+			<div class="row heading" ><center><h3>Question 1</h3><center></div>
+				<div class="row QuesText ">
+					<span>Given points (X1,Y1) and (X2,Y2) select the formula to find the equation of the given line.</span><br/>
+				</div>
+				<div class="row">
+					<div class="Question col-md-7">
+						<div class="row form-inline">
+							<label for="eq1" class="col-md-5">
+								<input type="radio" class="form-control" name="mathQu" value="0" >
+								<math>
+									<mrow>
+										<mi>y</mi>
+										<mo>=</mo>
+										<mi>mx</mi>
+										<mo>+</mo>
+										<mi>b</mi>
+									</mrow>
+								</math>
+								
+							</label> 
+							<label for="eq2" class="col-md-5" >
+								<input type="radio" name="mathQu" class="form-control" value="0">
+								
+								<math> 
+									<mrow>
+										<msup>
+											<mfenced>
+												<mrow>
+													<mi>x</mi>
+													<mo>-</mo>
+													<mi>h</mi>
+												</mrow>
+											</mfenced>
+											<mn>2</mn>
+										</msup>
+										<mo>+</mo>
+										<msup>
+											<mfenced>
+												<mrow>
+													<mi>y</mi>
+													<mo>-</mo>
+													<mi>k</mi>
+												</mrow>
+											</mfenced>
+											<mn>2</mn>
+										</msup>
+										<mo>=</mo>
+										<msup>
+
+											<mrow>
+												<mi>r</mi>
+											</mrow>
+
+											<mn>2</mn>
+
+										</mrow>
+									</msup>
+								</math>
+							</label>
+						</div>
+						<div class="row form-inline">
+							<label for="eq3" class="col-md-5" >
+								<input type="radio" name="mathQu" class="form-control" value="0">
+								
+								<math>
+									<mrow>
+										<mi>y</mi>
+										<mo>-</mo>
+										<msub>
+											<mi>y</mi>
+											<mn>1</mn>
+										</msub>
+										<mo>=</mo>
+										<mi>m</mi>
+										<mfenced>
+											<mrow>
+												<mi>x</mi>
+												<mo>-</mo>
+												<msub>
+													<mi>x</mi>
+													<mn>1</mn>
+												</msub>
+											</mrow>
+										</mfenced>
+									</mrow>
+								</math> 
+							</label>
+							<label for="eq4" class="col-md-5" >
+								<input type="radio" name="mathQu" class="form-control" value="1">
+								
+								<math>
+									<mrow>
+										<mi>y</mi>
+										<mo>-</mo>
+										<msub>
+											<mi>y</mi>
+											<mn>1</mn>
+										</msub>
+										<mo>=</mo>
+										<mfrac>
+											<mrow>
+												<mrow>
+													<msub>
+														<mi>y</mi>
+														<mn>2</mn>
+													</msub>
+												</mrow>
+												<mo>-</mo>
+												<mrow>
+													<msub>
+														<mi>y</mi>
+														<mn>1</mn>
+													</msub>
+												</mrow>
+											</mrow>
+											<mrow>
+												<mrow>
+													<msub>
+														<mi>x</mi>
+														<mn>2</mn>
+													</msub>
+												</mrow>
+												<mo>-</mo>
+												<mrow>
+													<msub>
+														<mi>x</mi>
+														<mn>1</mn>
+													</msub>
+												</mrow>
+											</mrow>
+										</mfrac>
+										<mfenced>
+											<mrow>
+												<mi>x</mi>
+												<mo>-</mo>
+												<msub>
+													<mi>x</mi>
+													<mn>2</mn>
+												</msub>
+											</mrow>
+										</mfenced>
+									</mrow>
+								</math>
+							</label>
+						</div> 
+					</div>
+
+					<div class="dvImg col-md-5">
+						<img class="img" src="LineEq.jpg" alt="LineEq Image">
+					</div>
+				</div>
+				<div class="row dvBtn form-inline" >
+					<div class="col-md-3">
+						<button type="Submit" class="btnSave form-control">Save & Next Question</button>
+					</div>
+					<div class="col-md-3">
+						<button type="button" class="btnClear form-control">Cancel & Clear Selection</button>
+					</div>
+				</div>
+			</div>
+
+		</form>
+	</body>
+	</html>
